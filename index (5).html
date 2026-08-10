@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Path to T3C Credentialing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#e4d8e2;
+    --card:#fbf8f3;
+    --card-border:#e7dde3;
+    --road:#4f1d5a;
+    --road-shadow:#33143b;
+    --dash:#eebc4a;
+    --ink:#3a2145;
+    --title:#5b1c6b;
+    --body:#6a4872;
+    --mono:#635865;
+    --you:#ffe7af;      --you-ink:#8f5600;
+    --us:#bceace;       --us-ink:#004721;
+    --together:#f0e2f2; --together-ink:#6f4574;
+    --chk-border:#c9bccb;
+    --accent:#e8912f;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Inter",system-ui,sans-serif;line-height:1.45;
+    padding:34px 24px 50px;
+  }
+  .wrap{max-width:1320px;margin:0 auto}
+
+  /* Header */
+  .header-row{display:flex;flex-wrap:wrap;gap:22px;justify-content:space-between;align-items:flex-end}
+  .eyebrow{font-family:"Space Mono",monospace;font-weight:700;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink);margin:0 0 12px}
+  h1{font-family:"Sora",sans-serif;font-weight:800;font-size:clamp(30px,5vw,50px);line-height:1.0;color:var(--title);margin:0 0 14px;letter-spacing:-.02em}
+  .lede{max-width:820px;margin:0;color:var(--body);font-size:14.5px}
+  .legend{display:flex;gap:20px;flex-wrap:wrap;align-items:center;font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mono)}
+  .legend span{display:inline-flex;align-items:center;gap:8px}
+  .swatch{width:22px;height:14px;border-radius:3px;border:1.5px solid #9d8aa2}
+  .sw-you{background:var(--you);border-color:#d8b95f}
+  .sw-us{background:var(--us);border-color:#7bbf95}
+  .sw-together{background:transparent}
+
+  /* Progress */
+  .progress-bar{margin:26px 0 6px;display:flex;align-items:center;gap:14px}
+  .track{flex:1;height:9px;border-radius:99px;background:#cbbcca;overflow:hidden}
+  .fill{height:100%;width:0;background:linear-gradient(90deg,#8a4fac,#5b1c6b);border-radius:99px;transition:width .35s ease}
+  .pct{font-family:"Space Mono",monospace;font-size:12.5px;color:var(--ink);min-width:118px;text-align:right}
+  .reset{border:1px solid var(--card-border);background:var(--card);color:var(--mono);font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:8px 13px;border-radius:7px;cursor:pointer}
+  .reset:hover{background:#f4eef6;color:var(--ink)}
+  .reset:focus-visible{outline:2px solid var(--title);outline-offset:2px}
+
+  /* Road */
+  .road-band{position:relative;margin-top:24px;overflow:visible}
+  .road-band > svg{width:100%;height:118px;overflow:visible;display:block}
+  .nodes{display:grid;grid-template-columns:repeat(5,1fr);margin-top:-58px;position:relative;z-index:2}
+  .node{display:flex;flex-direction:column;align-items:center;text-align:center;min-width:0;padding:0 6px}
+  .disc{
+    width:76px;height:76px;border-radius:50%;background:var(--card);
+    border:3px solid var(--road);
+    box-shadow:4px 5px 0 rgba(51,20,59,.55);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+  }
+  .disc .ico{width:24px;height:24px}
+  .disc .num{font-family:"Space Mono",monospace;font-weight:700;font-size:11px;color:var(--mono)}
+  .p-title{font-family:"Sora",sans-serif;font-weight:700;font-size:20px;color:var(--title);margin:14px 0 3px;max-width:100%;letter-spacing:-.01em}
+  .p-sub{font-family:"Space Mono",monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--mono);max-width:100%;line-height:1.35}
+  .dotdivider{margin:16px 0 22px;height:0;border:0;border-top:3px dotted #b9a6c7}
+
+  /* Columns */
+  .columns{display:grid;grid-template-columns:repeat(5,1fr);gap:15px;align-items:start}
+  .col{display:flex;flex-direction:column;gap:15px}
+
+  /* Card */
+  .card{background:var(--card);border:1px solid var(--card-border);border-radius:9px;padding:15px 16px 16px;box-shadow:0 1px 2px rgba(58,20,60,.05),0 7px 16px rgba(58,20,60,.05)}
+  .card-top{display:flex;align-items:center;gap:11px}
+  .tag{font-family:"Space Mono",monospace;font-weight:700;font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;padding:5px 9px;border-radius:4px;white-space:nowrap}
+  .tag.you{background:var(--you);color:var(--you-ink)}
+  .tag.us{background:var(--us);color:var(--us-ink)}
+  .tag.together{background:var(--together);color:var(--together-ink)}
+  .card h3{font-family:"Archivo",sans-serif;font-weight:700;font-size:15.5px;color:var(--ink);margin:12px 0 6px;line-height:1.2}
+  .card p{margin:0;font-size:13px;color:var(--body)}
+  .card.done{opacity:.72}
+  .card.done h3{text-decoration:line-through;text-decoration-color:#b7a6c6}
+
+  /* Checkbox */
+  .chk{display:inline-flex;cursor:pointer;flex:0 0 auto}
+  .card-top .chk{padding:10px;margin:-10px}
+  .chk input{position:absolute;opacity:0;width:0;height:0}
+  .box{width:20px;height:20px;border:2px solid var(--chk-border);border-radius:4px;background:#fff;display:grid;place-items:center;transition:all .15s ease}
+  .box svg{width:13px;height:13px;opacity:0;transform:scale(.4);transition:all .15s ease}
+  .chk input:checked + .box{background:var(--road);border-color:var(--road)}
+  .chk input:checked + .box svg{opacity:1;transform:scale(1)}
+  .chk input:focus-visible + .box{outline:2px solid var(--title);outline-offset:2px}
+
+  /* Sub-list */
+  .sub-caption{font-size:13px;color:var(--body);margin:8px 0 12px}
+  .sublist{display:flex;flex-direction:column;gap:2px}
+  .subrow{display:flex;gap:11px;align-items:flex-start;font-size:13px;color:var(--body);cursor:pointer;padding:6px;margin:0 -6px;border-radius:6px}
+  .subrow:hover{background:#f4eef6}
+  .subrow .box{width:19px;height:19px;margin-top:1px}
+  .subrow span{padding-top:1px}
+
+  /* Footer watermark */
+  .foot{margin-top:40px;display:flex;justify-content:flex-end}
+  .rs{text-align:center;color:#c6b4d0;user-select:none}
+  .rs .r1{font-family:"Archivo",sans-serif;font-weight:800;font-size:40px;line-height:.82;letter-spacing:.02em}
+  .rs .r2{font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.5em;text-transform:lowercase;margin-top:6px}
+
+  /* Responsive */
+  @media (max-width:900px){
+    .road-band{margin-top:0}
+    .road-band svg,.flag,.nodes{display:none}
+    .dotdivider{display:none}
+    .columns{grid-template-columns:1fr;gap:0}
+    .col{position:relative}
+    .col::before{content:attr(data-phase);display:block;font-family:"Sora",sans-serif;font-weight:700;font-size:22px;color:var(--title);margin:26px 0 2px;letter-spacing:-.01em}
+    .col::after{content:attr(data-sub);display:block;font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--mono);margin-bottom:12px}
+    .col{gap:12px}
+  }
+  @media print{body{background:#fff;padding:0}.reset,.progress-bar{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="header-row">
+    <div>
+      <p class="eyebrow">Customer Roadmap &nbsp;·&nbsp; T3C Credentialing</p>
+      <h1>The Path to T3C Credentialing</h1>
+      <p class="lede">This roadmap outlines the key steps in the T3C credentialing process. Use it to see where you are, what's ahead, and what is needed along the way.</p>
+    </div>
+    <div class="legend">
+      <span><i class="swatch sw-you"></i>From You</span>
+      <span><i class="swatch sw-us"></i>From Us</span>
+      <span><i class="swatch sw-together"></i>Together</span>
+    </div>
+  </div>
+
+  <div class="progress-bar">
+    <div class="track"><div class="fill" id="fill"></div></div>
+    <div class="pct" id="pct">0 / 0 complete</div>
+    <button class="reset" id="reset">Reset</button>
+  </div>
+
+  <!-- ROAD -->
+  <div class="road-band">
+    <svg viewBox="0 0 1000 118" preserveAspectRatio="none" aria-hidden="true">
+      <!-- shadow -->
+      <path d="M8,70 C150,32 235,32 345,58 C455,84 525,38 645,56 C765,74 835,42 992,60"
+            fill="none" stroke="#33143b" stroke-width="30" stroke-linecap="round" transform="translate(0,7)"/>
+      <!-- road -->
+      <path d="M8,70 C150,32 235,32 345,58 C455,84 525,38 645,56 C765,74 835,42 992,60"
+            fill="none" stroke="#4f1d5a" stroke-width="30" stroke-linecap="round"/>
+      <!-- dashes -->
+      <path d="M8,70 C150,32 235,32 345,58 C455,84 525,38 645,56 C765,74 835,42 992,60"
+            fill="none" stroke="#eebc4a" stroke-width="2.4" stroke-dasharray="13 11" stroke-linecap="round"/>
+    </svg>
+    <!-- Flags (HTML, absolutely placed) -->
+    <div class="flag" style="position:absolute;left:0.5%;top:11px;font-family:'Archivo',sans-serif;font-weight:800;font-size:11px;letter-spacing:.02em;color:#26202a;text-align:center">START
+      <svg width="40" height="40" viewBox="0 0 40 40" style="display:block;margin-top:1px">
+        <line x1="9" y1="2" x2="9" y2="37" stroke="#26202a" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M9,3 L37,3 L28,11.5 L37,20 L9,20 Z" fill="#536f61"/>
+      </svg>
+    </div>
+    <div class="flag" style="position:absolute;right:0.5%;top:1px;text-align:center;font-family:'Archivo',sans-serif;font-weight:800;font-size:11px;letter-spacing:.02em;color:#26202a">FINISH
+      <svg width="42" height="40" viewBox="0 0 42 40" style="display:block;margin-top:1px;margin-left:auto;margin-right:auto">
+        <line x1="10" y1="2" x2="10" y2="37" stroke="#26202a" stroke-width="2.4" stroke-linecap="round"/>
+        <rect x="10" y="3" width="26" height="15" fill="#fbf8f3"/>
+        <rect x="10" y="3"    width="6.5" height="7.5" fill="#26202a"/>
+        <rect x="23" y="3"    width="6.5" height="7.5" fill="#26202a"/>
+        <rect x="16.5" y="10.5" width="6.5" height="7.5" fill="#26202a"/>
+        <rect x="29.5" y="10.5" width="6.5" height="7.5" fill="#26202a"/>
+        <rect x="10" y="3" width="26" height="15" fill="none" stroke="#26202a" stroke-width="1"/>
+      </svg>
+    </div>
+    <!-- Nodes -->
+    <div class="nodes">
+      <div class="node">
+        <div class="disc"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#3a2145" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="17" rx="2"/><path d="M16 2.5v4M8 2.5v4M3 9.5h18"/><circle cx="12" cy="15" r="1.4" fill="#eebc4a" stroke="none"/></svg><span class="num">01</span></div>
+        <div class="p-title">Onboarding</div><div class="p-sub">Contract &amp; Kickoff</div>
+      </div>
+      <div class="node">
+        <div class="disc"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#3a2145" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6.5A1.5 1.5 0 0 0 5 4.5v15A1.5 1.5 0 0 0 6.5 21h11A1.5 1.5 0 0 0 19 19.5V8z"/><path d="M14 3v5h5M8.5 13h7M8.5 16.5h7"/></svg><span class="num">02</span></div>
+        <div class="p-title">Alignment</div><div class="p-sub">Document Handoff &amp; Interviews</div>
+      </div>
+      <div class="node">
+        <div class="disc"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#3a2145" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="2.5"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><span class="num">03</span></div>
+        <div class="p-title">Production</div><div class="p-sub">Deliverable Development &amp; Review</div>
+      </div>
+      <div class="node">
+        <div class="disc"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#3a2145" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 20v-1.5A4.5 4.5 0 0 1 8 14h2a4.5 4.5 0 0 1 4.5 4.5V20"/><circle cx="17" cy="8.5" r="2.4" stroke="#e8912f"/><path d="M15 20v-1a3.6 3.6 0 0 1 3.4-3.6" stroke="#e8912f"/></svg><span class="num">04</span></div>
+        <div class="p-title">Integration</div><div class="p-sub">Training</div>
+      </div>
+      <div class="node">
+        <div class="disc"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#3a2145" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3H6.5A1.5 1.5 0 0 0 5 4.5v15A1.5 1.5 0 0 0 6.5 21h11A1.5 1.5 0 0 0 19 19.5V9z"/><path d="M13 3v6h6M8.5 13h4"/><rect x="13.5" y="14" width="6" height="5" rx="1" stroke="#e8912f"/><path d="M15 14v-1.3a1.5 1.5 0 0 1 3 0V14" stroke="#e8912f"/></svg><span class="num">05</span></div>
+        <div class="p-title">Submission</div><div class="p-sub">Documentation &amp; Final Review</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="dotdivider">
+
+  <!-- COLUMNS -->
+  <div class="columns">
+
+    <!-- 01 -->
+    <div class="col" data-phase="Onboarding" data-sub="Contract & Kickoff">
+      <div class="card">
+        <div class="card-top"><label class="chk"><input type="checkbox" data-id="agreement"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></label><span class="tag together">Together</span></div>
+        <h3>Agreement signed</h3>
+        <p>The contract is executed and our partnership officially begins.</p>
+      </div>
+      <div class="card">
+        <div class="card-top"><label class="chk"><input type="checkbox" data-id="kickoff"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></label><span class="tag together">Together</span></div>
+        <h3>Kickoff with the ODI team</h3>
+        <p>We will meet your team, walk through the full credentialing process, align on timeline, and assign points of contact.</p>
+      </div>
+    </div>
+
+    <!-- 02 -->
+    <div class="col" data-phase="Alignment" data-sub="Document Handoff & Interviews">
+      <div class="card">
+        <div class="card-top"><label class="chk"><input type="checkbox" data-id="handoff"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></label><span class="tag you">From You</span></div>
+        <h3>Document handoff</h3>
+        <p>Share your policy &amp; procedure manual, job descriptions, and staffing plan.</p>
+      </div>
+      <div class="card">
+        <div class="card-top"><label class="chk"><input type="checkbox" data-id="interviews"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></label><span class="tag together">Together</span></div>
+        <h3>Program interviews</h3>
+        <p>We meet with your team to understand how your organization runs. This gives us the information we need to build accurate logic models and policies.</p>
+      </div>
+    </div>
+
+    <!-- 03 -->
+    <div class="col" data-phase="Production" data-sub="Deliverable Development & Review">
+      <div class="card">
+        <div class="card-top"><label class="chk"><input type="checkbox" data-id="logic"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></label><span class="tag us">From Us</span></div>
+        <h3>Logic Models</h3>
+        <p>We draft Logic Models. Your team reviews, gives feedback, and approves.</p>
+      </div>
+      <div class="card">
+        <div class="card-top"><label class="chk"><input type="checkbox" data-id="policies"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></label><span class="tag us">From Us</span></div>
+        <h3>Policies</h3>
+        <p>We draft updated T3C-related policies. Your team reviews, gives feedback, and approves.</p>
+      </div>
+      <div class="card">
+        <div class="card-top"><label class="chk"><input type="checkbox" data-id="treatment"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></label><span class="tag us">From Us</span></div>
+        <h3>Treatment Model &amp; CQI</h3>
+        <p>We draft your Treatment Model and Continuous Quality Improvement Policy. Your team reviews, gives feedback, and approves.</p>
+      </div>
+      <div class="card">
+        <div class="card-top"><label class="chk"><input type="checkbox" data-id="staffing"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></label><span class="tag us">From Us</span></div>
+        <h3>Staffing Documents</h3>
+        <p>We draft job descriptions, an organizational chart and staffing plan. Your team reviews, gives feedback, and approves.</p>
+      </div>
+    </div>
+
+    <!-- 04 -->
+    <div class="col" data-phase="Integration" data-sub="Training">
+      <div class="card">
+        <div class="card-top"><label class="chk"><input type="checkbox" data-id="training"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></label><span class="tag you">From You</span></div>
+        <h3>Conduct training</h3>
+        <p class="sub-caption">These are the trainings you will need to facilitate:</p>
+        <div class="sublist">
+          <label class="subrow"><span class="chk"><input type="checkbox" data-id="tr-treatment"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></span><span>Treatment Model</span></label>
+          <label class="subrow"><span class="chk"><input type="checkbox" data-id="tr-policies"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></span><span>Updated policies and procedures</span></label>
+          <label class="subrow"><span class="chk"><input type="checkbox" data-id="tr-packages"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></span><span>Enhanced training on selected service packages</span></label>
+          <label class="subrow"><span class="chk"><input type="checkbox" data-id="tr-trafficking"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></span><span>Human Trafficking Prevention</span></label>
+          <label class="subrow"><span class="chk"><input type="checkbox" data-id="tr-roles"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></span><span>Updated job roles and/or responsibilities</span></label>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-top"><label class="chk"><input type="checkbox" data-id="training-docs"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></label><span class="tag you">From You</span></div>
+        <h3>Training documentation &amp; acknowledgement forms</h3>
+        <p>Send us completed training documents and signed acknowledgement forms.</p>
+      </div>
+    </div>
+
+    <!-- 05 -->
+    <div class="col" data-phase="Submission" data-sub="Documentation & Final Review">
+      <div class="card">
+        <div class="card-top"><label class="chk"><input type="checkbox" data-id="application"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></label><span class="tag together">Together</span></div>
+        <h3>Application</h3>
+        <p>We assemble the final materials you need for your application and send to you. You log into the DFPS portal and upload all materials for final submission.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="foot">
+    <div class="rs"><div class="r1">ROCK<br>SOLID</div><div class="r2">foundation</div></div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var KEY = "t3c-roadmap-progress";
+  var boxes = [].slice.call(document.querySelectorAll('input[type=checkbox]'));
+  var fill = document.getElementById('fill'), pct = document.getElementById('pct');
+
+  function load(){
+    var s={}; try{ s = JSON.parse(localStorage.getItem(KEY)||"{}"); }catch(e){}
+    boxes.forEach(function(b){ if(s[b.dataset.id]) b.checked = true; });
+  }
+  function save(){
+    var s={}; boxes.forEach(function(b){ if(b.checked) s[b.dataset.id]=true; });
+    try{ localStorage.setItem(KEY, JSON.stringify(s)); }catch(e){}
+  }
+  function render(){
+    var done = boxes.filter(function(b){return b.checked;}).length, total = boxes.length;
+    fill.style.width = total ? (done/total*100)+"%" : "0%";
+    pct.textContent = done+" / "+total+" complete";
+    boxes.forEach(function(b){
+      if(b.closest('.subrow')) return;
+      var c = b.closest('.card'); if(c) c.classList.toggle('done', b.checked);
+    });
+  }
+  boxes.forEach(function(b){ b.addEventListener('change', function(){ save(); render(); }); });
+  document.getElementById('reset').addEventListener('click', function(){
+    if(!confirm('Clear all checkmarks?')) return;
+    boxes.forEach(function(b){ b.checked=false; });
+    try{ localStorage.removeItem(KEY); }catch(e){}
+    render();
+  });
+  load(); render();
+})();
+</script>
+</body>
+</html>
